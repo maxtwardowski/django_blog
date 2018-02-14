@@ -17,3 +17,16 @@ class Post(models.Model):
     was_published_recently.admin_order_field = 'publication_date'
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        'Post',
+        on_delete=models.CASCADE,
+    )
+    author = models.CharField(max_length=20)
+    text = models.CharField(max_length=200)
+    date = models.DateTimeField('date of publication')
+
+    def __str__(self):
+        return self.author

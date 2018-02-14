@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
-from .models import Post
+from .models import Post, Comment
 
 
 class FeedView(ListView):
@@ -14,5 +14,11 @@ class FeedView(ListView):
 
 
 class PostView(DetailView):
-    model = Post
+    queryset = Post.objects.all()
+    # model = Post
     template_name = 'blog/post.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostView, self).get_context_data(*args, **kwargs)
+        context['comments_list'] = Comment.objects.all()
+        return context

@@ -1,3 +1,17 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+<h2>{{ post.post_title }}</h2>
+<p>{{ post.post_text }}</p>
+<p2>{{ post.publication_date }}</p2>
+<h2>Comments:</h2>
+
+<ul>
+    {% for comment in comments_list %}
+    <li>
+        <h3>{{ comment.author }}</h3>
+        <p3>{{ comment.text }}</p3>
+    </li>
+    {% endfor %}
+</ul>
