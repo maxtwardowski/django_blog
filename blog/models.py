@@ -20,12 +20,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(
-        'Post',
-        on_delete=models.CASCADE,
-    )
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=20)
-    text = models.CharField(max_length=200)
+    text = models.CharField(max_length=10000)
     date = models.DateTimeField('date of publication')
 
     def __str__(self):

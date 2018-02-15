@@ -89,6 +89,8 @@ p3 {
 	font-variant: normal;
 	font-weight: 400;
     color: black;
-    line-height: 0px;
+    line-height: 16px;
     margin-left: 35px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
