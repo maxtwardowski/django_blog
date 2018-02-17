@@ -10,16 +10,18 @@
 
 <ul>
     {% for comment in post.comments.all %}
-    <li>
-        <h3>{{ comment.author }}</h3>
-        <p3>{{ comment.text }}</p3><br>
-        <p2>{{ comment.date }}</p2>
-    </li>
+        {% if comment.approved %}
+            <li>
+                <h3>{{ comment.author }}</h3>
+                <p3>{{ comment.text }}</p3><br>
+                <p2>{{ comment.date }}</p2>
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 
 
-<form action="comment/" method="POST">
+<form action="comment/" method="POST" class="input">
     {% csrf_token %}
     <label for="author">Author:</label><br>
     <input id="author" type="text" name="author" value="{{ author }}"><br>

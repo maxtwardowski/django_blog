@@ -108,13 +108,6 @@ p3 {
     box-decoration-break: clone;
 }
 
-textarea {
-    margin-left: 70px;
-    margin-top: 10px;
-    resize: none;
-    font-family: Ubuntu;
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+input {
+    margin-left: 35px;
 }

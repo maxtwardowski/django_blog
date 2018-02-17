@@ -21,9 +21,14 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
-    author = models.CharField(max_length=20)
+    author = models.CharField(max_length=30)
     text = models.CharField(max_length=10000)
     date = models.DateTimeField('date of publication')
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.author
+
+    def approvecomment(self):
+        self.approved_comment = True
+        self.save()
