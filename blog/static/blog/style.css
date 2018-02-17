@@ -50,6 +50,19 @@ h3 {
     margin-left: 35px;
 }
 
+h4 {
+    font-family: Ubuntu;
+	font-size: 22px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 27.4px;
+    margin-top: 26px;
+    margin-bottom: 1px;
+    margin-right: 0px;
+    margin-left: 35px;
+}
+
 p {
 	font-family: Ubuntu;
 	font-size: 14px;
@@ -93,4 +106,15 @@ p3 {
     margin-left: 35px;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+}
+
+textarea {
+    margin-left: 70px;
+    margin-top: 10px;
+    resize: none;
+    font-family: Ubuntu;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }

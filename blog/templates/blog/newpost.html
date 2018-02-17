@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+<form action="adding/" method="post">
+    {% csrf_token %}
+    <label for="post_title">Title:</label><br>
+    <input id="post_title" type="text" name="post_title" value="{{ post_title }}"><br>
+    <label for="post_text">Text:</label><br>
+    <input id="post_text" type="text" name="text" value="{{ post_text }}"><br>
+    <input type="submit" value="Submit">
+</form>
