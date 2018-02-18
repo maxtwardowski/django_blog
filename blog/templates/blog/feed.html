@@ -3,6 +3,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 
 <!--<a href="/newpost/">Add new post</a>-->
+
+{% if object_list %}
 <ul>
   {% for post in object_list %}
       <li>
@@ -11,3 +13,6 @@
       </li>
   {% endfor %}
 </ul>
+{% else %}
+<p>There are no posts here...</p>
+{% endif %}

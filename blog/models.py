@@ -5,7 +5,7 @@ import datetime
 
 class Post(models.Model):
     post_title = models.CharField(max_length=30)
-    post_text = models.CharField(max_length=12)
+    post_text = models.CharField(max_length=100000)
     publication_date = models.DateTimeField('date of publication')
 
     def __str__(self):
@@ -20,7 +20,11 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        'Post',
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
     author = models.CharField(max_length=30)
     text = models.CharField(max_length=10000)
     date = models.DateTimeField('date of publication')
