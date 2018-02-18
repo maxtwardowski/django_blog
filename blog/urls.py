@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.FeedView.as_view(), name='feed'),
     path('<int:pk>/', views.PostView.as_view(), name='post'),
     path('<int:pk>/comment/', views.AddComment, name='comment'),
-    path('newpost/', views.NewPostView.as_view(), name='newpost')
+    path('newpost/', views.AddPostView, name='newpost'),
+    path('newpost/addingpost/', views.AddPost, name='post'),
     ]

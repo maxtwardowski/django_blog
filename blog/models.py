@@ -4,17 +4,17 @@ import datetime
 
 
 class Post(models.Model):
-    post_title = models.CharField(max_length=30)
-    post_text = models.CharField(max_length=100000)
-    publication_date = models.DateTimeField('date of publication')
+    title = models.CharField(max_length=30)
+    text = models.CharField(max_length=100000)
+    date = models.DateTimeField('date of publication')
 
     def __str__(self):
-        return self.post_title
+        return self.title
 
     def was_published_recently(self):
         now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.publication_date <= now
-    was_published_recently.admin_order_field = 'publication_date'
+        return now - datetime.timedelta(days=1) <= self.date <= now
+    was_published_recently.admin_order_field = 'date'
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
 

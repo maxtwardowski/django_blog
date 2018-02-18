@@ -2,14 +2,14 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 
-<!--<a href="/newpost/">Add new post</a>-->
+<a href="/newpost/">ADD NEW POST</a>
 
 {% if object_list %}
 <ul>
   {% for post in object_list %}
       <li>
-          <h1><a href="{% url 'blog:post' post.id %}">{{ post.post_title }}</a></h1>
-          <p1>{{ post.publication_date }}</p1>
+          <h1><a href="{% url 'blog:post' post.id %}">{{ post.title }}</a></h1>
+          <p1>{{ post.date }}</p1>
       </li>
   {% endfor %}
 </ul>
