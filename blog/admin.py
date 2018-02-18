@@ -3,18 +3,18 @@ from .models import Post, Comment
 
 
 def ApproveSelected(modeladmin, request, queryset):
-    queryset.update(status='p')
-    queryset.approved_comment = True
-    queryset.save()
+    for element in queryset:
+        element.approved = True
+        element.save()
 
 
-ApproveSelected.short_description = "Approve comments"
+ApproveSelected.short_description = "Approve selected comments"
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['author', 'text']
+    list_display = ['post', 'author', 'text', 'date', 'approved']
     actions = [ApproveSelected]
 
 
 admin.site.register(Post)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)

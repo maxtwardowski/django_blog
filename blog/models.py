@@ -30,5 +30,5 @@ class Comment(models.Model):
         return self.author
 
     def approvecomment(self):
-        self.approved_comment = True
+        self.approved = True
         self.save()

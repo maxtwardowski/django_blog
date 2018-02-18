@@ -108,6 +108,26 @@ p3 {
     box-decoration-break: clone;
 }
 
+label {
+    font-family: Ubuntu;
+    margin-left: 70px;
+}
+
+input[type=submit] {
+    margin-left: 70px;
+}
+
 input {
-    margin-left: 35px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
+
+input[id="author"] {
+    width: 200px;
+}
+
+input[id="text"] {
+    width: 600px;
+    height: 200px;
 }
