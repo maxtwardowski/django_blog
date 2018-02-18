@@ -2,10 +2,10 @@ from django import forms
 
 
 class CommentForm(forms.Form):
-    author = forms.CharField(max_length=300)
+    author = forms.CharField(max_length=30)
     text = forms.CharField(max_length=10000)
 
 
 class PostForm(forms.Form):
-    post_title = forms.CharField(max_length=30)
+    title = forms.CharField(max_length=30)
     post_text = forms.CharField(max_length=10000)
