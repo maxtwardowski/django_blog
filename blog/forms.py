@@ -1,14 +1,9 @@
 from django import forms
-from .models import Comment
 
 
-class CommentForm(forms.ModelForm):
-
-    class Meta:
-        model = Comment
-        fields = ('author', 'text',)
-    # comment_author = forms.CharField(max_length=100)
-    # comment_text = forms.CharField(max_length=10000)
+class CommentForm(forms.Form):
+    author = forms.CharField(max_length=300)
+    text = forms.CharField(max_length=10000)
 
 
 class PostForm(forms.Form):
