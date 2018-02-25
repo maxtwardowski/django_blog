@@ -1,19 +1,20 @@
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.template import loader
 
 
 class FeedView(ListView):
     template_name = 'blog/feed.html'
+    context_object_name = 'posts_list'
 
     def get_queryset(self):
         "Return the last ten published posts"
         return Post.objects.filter(
-            publication_date__lte=timezone.now()
-        ).order_by('-publication_date')[:5]
+            date__lte=timezone.now()
+        ).order_by('-date')[:5]
 
 
 class PostView(DetailView):
@@ -39,6 +40,26 @@ def AddComment(request, pk):
     return HttpResponseRedirect('/' + str(pk))
 
 
-class NewPostView(DetailView):
-    queryset = Post.objects.all()
-    template_name = 'blog/newpost.html'
+def AddPostView(request):
+    template = loader.get_template("blog/newpost.html")
+    return HttpResponse(template.render())
+
+
+def AddPost(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            newpost = Post()
+            newpost.title = form.cleaned_data['title']
+            newpost.text = form.cleaned_data['text']
+            newpost.date = timezone.now()
+            newpost.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = PostForm()
+
+    return HttpResponseRedirect('/')
+
+
+def LoginView(request):
+    return HttpResponseRedirect('/')

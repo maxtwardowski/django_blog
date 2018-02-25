@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 
-<h2>{{ post.post_title }}</h2>
-<p>{{ post.post_text }}</p>
-<p2>Post published on {{ post.publication_date }}</p2>
+<h2>{{ post.title }}</h2>
+<p>{{ post.text }}</p>
+<p2>Post published on {{ post.date }}</p2>
 
 <h4>Comments:</h4>
 
@@ -20,7 +20,7 @@
     {% endfor %}
 </ul>
 
-<form action="comment/" method="POST" class="input">
+<form action="comment/" method="POST">
     {% csrf_token %}
     <label for="author">Author:</label><br>
     <input id="author" type="text" name="author" value="{{ author }}"><br>
@@ -28,11 +28,3 @@
     <input id="text" type="text" name="text" value="{{ text }}"><br>
     <input type="submit" value="Submit">
 </form>
-
-
-<!--
-<label for="comment_author">Author:</label><br>
-<input id="comment_author" type="text" name="comment_author" value="{{ comment_author }}"><br>
-<label for="comment_text">Your comment:</label><br>
-<input id="comment_text" type="text" name="text" value="{{ comment_text }}"><br>
-<input type="submit" value="Submit">-->

@@ -7,6 +7,12 @@ li a {
     text-decoration: none;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    font-family: Ubuntu;
+}
+
 body {
     background: white;
 }

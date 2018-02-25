@@ -2,11 +2,13 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 
-<form action="adding/" method="post">
+<h1>Add new post</h1><br>
+
+<form action="addingpost/" method="POST">
     {% csrf_token %}
-    <label for="post_title">Title:</label><br>
-    <input id="post_title" type="text" name="post_title" value="{{ post_title }}"><br>
-    <label for="post_text">Text:</label><br>
-    <input id="post_text" type="text" name="text" value="{{ post_text }}"><br>
+    <label for="title">Post title:</label><br>
+    <input id="title" type="text" name="title" value="{{ title }}"><br>
+    <label for="text">Text:</label><br>
+    <input id="text" type="text" name="text" value="{{ text }}"><br>
     <input type="submit" value="Submit">
 </form>
