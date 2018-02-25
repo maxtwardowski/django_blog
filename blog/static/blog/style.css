@@ -114,6 +114,12 @@ p3 {
     box-decoration-break: clone;
 }
 
+p5 {
+    font-family: Ubuntu;
+    float: right;
+    margin-right: 30px;
+}
+
 label {
     font-family: Ubuntu;
     margin-left: 70px;

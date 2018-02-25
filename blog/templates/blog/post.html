@@ -20,11 +20,15 @@
     {% endfor %}
 </ul>
 
-<form action="comment/" method="POST">
-    {% csrf_token %}
-    <label for="author">Author:</label><br>
-    <input id="author" type="text" name="author" value="{{ author }}"><br>
-    <label for="text">Your comment:</label><br>
-    <input id="text" type="text" name="text" value="{{ text }}"><br>
-    <input type="submit" value="Submit">
-</form>
+{% if not user.is_authenticated %}
+    <p><a href="/login/">Log in</a> to add a comment</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+    <form action="comment/" method="POST">
+        {% csrf_token %}
+        <label for="author">Author:</label><br>
+        <input id="text" type="text" name="text" value="{{ text }}"><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}

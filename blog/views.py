@@ -29,7 +29,7 @@ def AddComment(request, pk):
         if form.is_valid():
             newcomment = Comment()
             newcomment.post = Post.objects.get(pk=pk)
-            newcomment.author = form.cleaned_data['author']
+            newcomment.author = request.user.username
             newcomment.text = form.cleaned_data['text']
             newcomment.date = timezone.now()
             newcomment.save()
