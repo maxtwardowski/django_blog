@@ -8,6 +8,7 @@ from django.template import loader
 
 class FeedView(ListView):
     template_name = 'blog/feed.html'
+    context_object_name = 'posts_list'
 
     def get_queryset(self):
         "Return the last ten published posts"
@@ -57,4 +58,8 @@ def AddPost(request):
     else:
         form = PostForm()
 
+    return HttpResponseRedirect('/')
+
+
+def LoginView(request):
     return HttpResponseRedirect('/')
