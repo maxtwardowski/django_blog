@@ -6,9 +6,9 @@
 
 <form action="addingpost/" method="POST">
     {% csrf_token %}
-    <label for="title">Post title:</label><br>
-    <input id="title" type="text" name="title" value="{{ title }}"><br>
+    <label for="title">Title:</label><br>
+    <textarea id="title" type="text" name="title" value="{{ title }}" cols="60" rows="1"></textarea><br>
     <label for="text">Text:</label><br>
-    <input id="text" type="text" name="text" value="{{ text }}"><br>
+    <textarea id="text" type="text" name="text" value="{{ text }}" cols="100" rows="10"></textarea><br>
     <input type="submit" value="Submit">
 </form>

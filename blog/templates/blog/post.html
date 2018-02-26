@@ -4,7 +4,7 @@
 
 <h2>{{ post.title }}</h2>
 <p>{{ post.text }}</p>
-<p2>Post published on {{ post.date }}</p2>
+<p2>Post published on {{ post.date }} by {{ request.user.username }}</p2>
 
 <h4>Comments:</h4>
 
@@ -27,8 +27,9 @@
 {% if user.is_authenticated %}
     <form action="comment/" method="POST">
         {% csrf_token %}
-        <label for="author">Author:</label><br>
-        <input id="text" type="text" name="text" value="{{ text }}"><br>
+        <br><label for="author">New comment:</label><br>
+        <textarea id="text" type="text" name="text" value="{{ text }}" cols="100" rows="10"></textarea><br>
+        <p4>You are posting as {{ request.user.username }}</p4><br>
         <input type="submit" value="Submit">
     </form>
 {% endif %}

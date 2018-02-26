@@ -114,6 +114,19 @@ p3 {
     box-decoration-break: clone;
 }
 
+p4 {
+    font-family: Ubuntu;
+	font-size: 11px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 400;
+    color: grey;
+    line-height: 16px;
+    margin-left: 100px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
 p5 {
     font-family: Ubuntu;
     float: right;
@@ -142,4 +155,24 @@ input[id="author"] {
 input[id="text"] {
     width: 600px;
     height: 200px;
+}
+
+input[type="submit"] {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+textarea {
+    margin-left: 100px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    resize: none;
+    font-family: Ubuntu;
+    padding-top: 3px;
+    padding-left: 3px;
+}
+
+.panel {
+    margin-left: 40px;
+    margin-top: 10px;
 }
