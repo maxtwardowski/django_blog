@@ -47,12 +47,13 @@ def AddPostView(request):
 
 def AddPost(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             newpost = Post()
             newpost.title = form.cleaned_data['title']
             newpost.text = form.cleaned_data['text']
             newpost.date = timezone.now()
+            newpost.image = form.cleaned_data['image']
             newpost.save()
             return HttpResponseRedirect('/')
     else:

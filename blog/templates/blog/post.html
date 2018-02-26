@@ -27,7 +27,7 @@
 {% if user.is_authenticated %}
     <form action="comment/" method="POST">
         {% csrf_token %}
-        <br><label for="author">New comment:</label><br>
+        <br><label for="author">Add new comment:</label><br>
         <textarea id="text" type="text" name="text" value="{{ text }}" cols="100" rows="10"></textarea><br>
         <p4>You are posting as {{ request.user.username }}</p4><br>
         <input type="submit" value="Submit">
