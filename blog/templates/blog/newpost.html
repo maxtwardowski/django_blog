@@ -4,7 +4,7 @@
 
 <h1>Add new post</h1><br>
 
-<form action="addingpost/" method="POST">
+<form action="addingpost/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="title">Title:</label><br>
     <textarea id="title" type="text" name="title" value="{{ title }}" cols="60" rows="1"></textarea><br>

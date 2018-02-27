@@ -53,7 +53,8 @@ def AddPost(request):
             newpost.title = form.cleaned_data['title']
             newpost.text = form.cleaned_data['text']
             newpost.date = timezone.now()
-            newpost.image = form.cleaned_data['image']
+            # newpost.image = form.cleaned_data['image']
+            newpost.image = request.FILES['image']
             newpost.save()
             return HttpResponseRedirect('/')
     else:
